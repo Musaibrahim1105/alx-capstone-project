@@ -12,17 +12,7 @@ const Footer = () => {
         <p className='text-white'>Terms of Service</p>
       </div>
     </div>
-    <div>
-    <a href="https://facebook.com" className="text-white hover:text-blue-500 text-2xl">
-  <i className="fa-brands fa-facebook"></i>
-</a>
-
-    </div>
-    <div className="flex justify-center space-x-4">
-        <a href="https://facebook.com" target="_blank" className="text-blue hover:text-blue-500 text-2xl">
-          <FaFacebook />
-        </a>
-      </div>
+  
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+
 const Header = () => {
   return (
     <header className="bg-[#e9b08e] text-white fixed top-0 right-0 left-0 z-10 shadow-md p-4">
@@ -10,6 +11,7 @@ const Header = () => {
         <Link to="/" className="text-white hover:text-green-500 transition">Home</Link>
         <Link to="/about" className="text-white hover:text-green-500 transition">About</Link>
         <Link to="/contact" className="text-white hover:text-green-500 transition">Contact</Link>
+        <Link to="/contact" className="text-white hover:text-green-500 transition">RecipeDetails</Link>
       </nav>
     </header>
   );

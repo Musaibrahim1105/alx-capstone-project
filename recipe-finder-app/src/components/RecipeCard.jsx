@@ -1,83 +1,65 @@
-import React from 'react'
+import React from "react";
+
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const RecipeCard = () => {
+
+
+   const [meals, setMeals] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+
+
+     useEffect(() => {
+        fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=chicken")
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error("Failed to fetch meals");
+            }
+            return res.json();
+          })
+          .then((data) => {
+            setMeals(data.meals || []);
+            setLoading(false);
+          })
+          .catch((err) => {
+            setError(err.message);
+            setLoading(false);
+          });
+      }, []);
   return (
     <div>
-       <h1 className='text-grey-600 text-align-center justify-content-center'>Popular Recipes</h1>
-      
-      <div className="bg-white pt-2 rounded-lg p-4 m-4 flex flex-row m-4 items-center justify-center flex-wrap">
+       
+      <h1 className="text-2xl text-center font-bold justify-content-center">Meals</h1>
+      {loading ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p>Error: {error}</p>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+  {meals.map((meal) => (
+    <Link
+      to={`/meal/${meal.idMeal}`}
+      key={meal.idMeal}
+      className="block border p-4 rounded hover:bg-gray-100 transition"
+    >
+       <img
+        src={meal.strMealThumb}
+        alt={meal.strMeal}
+        className="w-[500px] h-[300px] object-cover mt-2 rounded"
+      />
+      <h2 className="text-xl font-semibold">{meal.strMeal}</h2>
+      <p className="text-sm text-gray-500">Category: {meal.strCategory}</p>
      
-      <div className='p-6 m-4 pb-8 hover:bg-orang-200 hover:text-white transition duration-300 ease-in shadow-md'>   
-        <img className="w-[300px] h-[200px] rounded object:cover" src="src/images/pizza.jpg" alt=""  />
-      <h2 className='text-2xl font-bold'>Title</h2> 
-      <p className='text-gray-500'>Description</p>
-      <button className="bg-[#e9b08e] text-white rounded p-2 hover:bg-grey-200">view recipe</button></div>
-
-      <div className='p-6 m-4 pb-8 hover:bg-orang-200 hover:text-white transition duration-300 ease-in shadow-md'>   
-        <img className="w-[300px] h-[200px] rounded object:cover" src="src/images/pizza.jpg" alt=""  />
-      <h2 className='text-2xl font-bold'>Title</h2> 
-      <p className='text-gray-500'>Describtion</p>
-      <button className="bg-[#e9b08e] text-white rounded p-2 hover:bg-grey-200">view recipe</button></div>
-<div className=''>
-  
-<div className='p-6 m-4 rounded pb-8 hover:bg-orang-200 hover:text-white transition duration-300 ease-in shadow-md'>   
-  <img className="w-[300px] h-[200px] rounded object:cover" src="src/images/pizza.jpg" alt=""  />
-      <h2 className='text-2xl font-bold'>Title</h2> 
-      <p className='text-gray-500'>Description</p>
-      <button className="bg-[#e9b08e] text-white rounded p-2 hover:bg-grey-200">view recipe</button></div>
+    </Link>
+  ))}
 </div>
-      
-    </div>
 
-
-    <div className="bg-white pt-2 rounded-lg p-4 m-4 flex flex-row m-4 items-center justify-center flex-wrap">
-     
-      <div className='p-6 m-4 pb-8 hover:bg-orang-200 hover:text-white transition duration-300 ease-in shadow-md'>   
-        <img className="w-[300px] h-[200px] rounded object:cover" src="src/images/pizza.jpg" alt=""  />
-      <h2 className='text-2xl font-bold'>Title</h2> 
-      <p className='text-gray-500'>Description</p>
-      <button className="bg-[#e9b08e] text-white rounded p-2 hover:bg-grey-200">view recipe</button></div>
-
-      <div className='p-6 m-4 pb-8 hover:bg-orang-200 hover:text-white transition duration-300 ease-in shadow-md'>   
-        <img className="w-[300px] h-[200px] rounded object:cover" src="src/images/pizza.jpg" alt=""  />
-      <h2 className='text-2xl font-bold'>Title</h2> 
-      <p className='text-gray-500'>Describtion</p>
-      <button className="bg-[#e9b08e] text-white rounded p-2 hover:bg-grey-200">view recipe</button></div>
-<div className=''>
-  
-<div className='p-6 m-4 rounded pb-8 hover:bg-orang-200 hover:text-white transition duration-300 ease-in shadow-md'>   
-  <img className="w-[300px] h-[200px] rounded object:cover" src="src/images/pizza.jpg" alt=""  />
-      <h2 className='text-2xl font-bold'>Title</h2> 
-      <p className='text-gray-500'>Description</p>
-      <button className="bg-[#e9b08e] text-white rounded p-2 hover:bg-grey-200">view recipe</button></div>
-</div>
-      
-    </div>
-
-
-    <div className="bg-white shadow-md pt-2 rounded-lg p-4 m-4 flex flex-row m-4 items-center justify-center flex-wrap">
-     
-      <div className='p-6 m-4 pb-8 hover:bg-orang-200 hover:text-black transition duration-300 ease-in shadow-md'>   
-        <img className="w-[300px] h-[200px] rounded object:cover" src="src/images/pizza.jpg" alt=""  />
-      <h2 className='text-2xl font-bold'>Title</h2> 
-      <p className='text-gray-500'>Description</p>
-      <button className="bg-[#e9b08e] text-white rounded p-1 hover:bg-grey-200">view recipe</button></div>
-
-      <div className='p-6 m-4 pb-8 hover:bg-orang-200 hover:text-white transition duration-300 ease-in shadow-md'>   
-        <img className="w-[300px] h-[200px] rounded object:cover" src="src/images/pizza.jpg" alt=""  />
-      <h2 className='text-2xl font-bold'>Title</h2> 
-      <p className='text-gray-500'>Describtion</p>
-      <button className="bg-[#e9b08e] text-white rounded p-2 hover:bg-grey-200">view recipe</button></div>
-<div className=''>
-  
-<div className='p-6 m-4 rounded pb-8 hover:bg-orang-200 hover:text-white transition duration-300 ease-in shadow-md'>   
-  <img className="w-[300px] h-[200px] rounded object:cover" src="src/images/pizza.jpg" alt=""  />
-      <h2 className='text-2xl font-bold'>Title</h2> 
-      <p className='text-gray-500'>Description</p>
-      <button className="bg-[#e9b08e] text-white rounded p-2 hover:bg-grey-200">view recipe</button></div>
-</div>
-      
-    </div>
+      )}
+    
     </div>
   )
 }
