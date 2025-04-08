@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import SearchBar from './../components/SearchBar';
+import SearchBar from '../components/SearchBar';
 
 
 const RecipeDetails = () => {
@@ -39,8 +39,8 @@ const RecipeDetails = () => {
   return (
     
    <>
-   <div className='bg-[#e9b08e] p-4 mt-12'><SearchBar /></div>
-   <div className="flex flex-col lg:flex-row gap-6">
+  
+   <div className="mt-12 flex flex-col lg:flex-row gap-6">
 
    <div className="w-full lg:w-1/2">
         

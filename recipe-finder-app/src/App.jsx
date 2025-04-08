@@ -5,8 +5,11 @@ import Home from "./pages/Home";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import About from "./pages/About";
+import  SeaFood from "./pages/SeaFood";
 import RecipeDetails from "./pages/RecipeDetails";
+import Vegetarian from "./pages/Vegetarian";
+import Cuisines from "./pages/Cuisines";
+import Holidays from "./pages/Holidays";
 
 const App = () => {
   return (
@@ -14,7 +17,10 @@ const App = () => {
       <Header /> 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/seafood" element={<SeaFood />} />
+        <Route path="/vegetarian" element={<Vegetarian />} />
+        <Route path="/cuisines" element={<Cuisines />} />
+        <Route path="/holidays" element={<Holidays />} />
         
         <Route path="/meal/:id" element={<RecipeDetails />} />
         

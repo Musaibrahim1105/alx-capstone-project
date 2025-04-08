@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchBar from '../components/SearchBar'
 
-const About = () => {
+const SeaFood = () => {
   return (
     <div>
       <SearchBar />
@@ -9,4 +9,4 @@ const About = () => {
   )
 }
 
-export default About
+export default SeaFood

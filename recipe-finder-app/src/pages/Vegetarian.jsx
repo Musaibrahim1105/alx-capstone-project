@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchBar from '../components/SearchBar'
 
-const Contact = () => {
+const Vegetarian = () => {
   return (
     <div>
       <SearchBar />
@@ -9,4 +9,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default Vegetarian

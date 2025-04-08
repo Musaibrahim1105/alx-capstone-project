@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const SearchBar = () => {
@@ -35,7 +36,7 @@ const SearchBar = () => {
       <input
         type="text"
         placeholder="Search meal..."
-        className="w-full p-2 border rounded mb-4"
+        className="w-full p-2 border text-black rounded mb-4"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
@@ -45,15 +46,17 @@ const SearchBar = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {meals.map((meal) => (
-          <div key={meal.idMeal} className="border rounded p-2">
+          <Link to={`/meal/${meal.idMeal}`} key={meal.idMeal}>
+          <div className="border rounded p-2 shadow-sm transition-shadow">  
             <img
               src={meal.strMealThumb}
               alt={meal.strMeal}
-              className="w-full h-32 object-cover rounded mb-2"
+              className="w-32 h-32 object-cover rounded mb-2"
             />
             <h2 className="text-lg font-semibold">{meal.strMeal}</h2>
             <p className="text-sm text-gray-500">{meal.strCategory}</p>
           </div>
+        </Link>
         ))}
       </div>
     </div>
