@@ -44,8 +44,10 @@ const Header = () => {
       {isOpen && ( 
         <div className="md:hidden bg-[#e9b08e] px-4 pb-4 space-y-2">
            <Link to="/" className="block hover:text-green-200" onClick={() => setIsOpen(false)}>Home</Link>
-           <Link to="/about" className="block hover:text-green-200" onClick={() => setIsOpen(false)}>About</Link>
-           <Link to="/contact" className="block hover:text-green-200" onClick={() => setIsOpen(false)}>Contact</Link> 
+           <Link to="/seafood" className="block hover:text-green-200" onClick={() => setIsOpen(false)}>Meat and SeaFood</Link>
+           <Link to="/vegetarian" className="block hover:text-green-200" onClick={() => setIsOpen(false)}>Vegetarian</Link> 
+           <Link to="/cuisines" className="block hover:text-green-200" onClick={() => setIsOpen(false)}>Cuisines</Link> 
+           <Link to="/holidays" className="block hover:text-green-200" onClick={() => setIsOpen(false)}>Holidays</Link> 
         </div>)}
       
     </header>

@@ -44,7 +44,7 @@ const SearchBar = () => {
       {loading && <p>Loading...</p>}
       {error && <p className="text-red-500">{error}</p>}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="bg-[#f5f5f4] relative inset-0 z-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {meals.map((meal) => (
           <Link to={`/meal/${meal.idMeal}`} key={meal.idMeal}>
           <div className="border rounded p-2 shadow-sm transition-shadow">  
